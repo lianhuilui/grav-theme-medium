@@ -29,6 +29,11 @@
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {% if page.media[page.header.header_image_file] %}
+  <meta name="og:image" content="{{ page.media[page.header.header_image_file].url }}">
+  {% endif %}
+
 </head>
 
 <body class="{{ page.header.class }}--body">
@@ -54,6 +59,10 @@
 
     {% if site.analytics %}
     {% include 'partials/analytics.html.twig' %}
+    {% endif %}
+
+    {% if site.clicky_analytics %}
+    {% include 'partials/clicky_analytics.html.twig' %}
     {% endif %}
 
 </body>
